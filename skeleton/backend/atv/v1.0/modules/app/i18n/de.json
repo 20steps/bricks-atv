@@ -1,0 +1,13 @@
+{
+  "app": {
+    "loading": {
+      "message": "Lade ..."
+    },
+    "errors": {
+      "script": {
+        "title": "Ausführungsfehler",
+        "description": "Beim Auswerten des JavaScripts ist ein Fehler aufgetreten.\n\n\nBitte prüfen Sie Ihre Netzwerkverbindung und versuchen Sie es später erneut."
+      }
+    }
+  }
+}

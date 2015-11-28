@@ -1,0 +1,14 @@
+{
+  "name": "Example App",
+  "private": "true",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "underscore": "latest",
+    "underscore.string": "latest",
+    "i18next": "latest",
+    "moment": "latest",
+    "async": "latest",
+    "bricks-atv": "latest"
+  }
+}

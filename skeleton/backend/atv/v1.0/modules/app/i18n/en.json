@@ -1,0 +1,13 @@
+{
+  "app": {
+    "loading": {
+      "message": "Loading ..."
+    },
+    "errors": {
+      "script": {
+        "title": "Evaluate Scripts Error",
+        "description": "There was an error attempting to evaluate the external JavaScript files.\n\n Please check your network connection and try again later."
+      }
+    }
+  }
+}

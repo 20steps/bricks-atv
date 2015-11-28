@@ -1,0 +1,10 @@
+'use strict';
+
+bricks.config.i18nResources = {
+    'de': {
+        translation: {"about":{"menu":{"title":"Über uns"}},"app":{"loading":{"message":"Lade ..."},"errors":{"script":{"title":"Ausführungsfehler","description":"Beim Auswerten des JavaScripts ist ein Fehler aufgetreten.\n\n\nBitte prüfen Sie Ihre Netzwerkverbindung und versuchen Sie es später erneut."}}},"inspire":{"title":"Inspirieren","menu":{"title":"Inspirieren"}},"magazine":{"title":"Magazin","menu":{"title":"Magazin"},"post":{"title":"Beitrag"}},"search":{"title":"Ausgewählte Immobilien finden","menu":{"title":"Suchen"},"form":{"q":{"placeholder":"Suchen nach ..."},"submit":{"label":"Suchen"}},"noresults":{"title":"Keine Treffer"},"results":{"title":"Gefundene Immobilien"},"recommended_properties":{"title":"Empfohlene Immobilien"}},"settings":{"title":"Persönliche Einstellungen","menu":{"title":"Einstellungen"},"entries":{"login":"Anmelden","autoplay":"Autoplay","help":"Hilfe","imprint":"Datenschutz und Nutzungsbedingungen","reload":"Neustarten"}},"start":{"title":"Übersicht","menu":{"title":"Start"},"tags":{"label":"Eigenschaften"}}}
+    },
+    'en': {
+        translation: {"about":{"menu":{"title":"About us"}},"app":{"loading":{"message":"Loading ..."},"errors":{"script":{"title":"Evaluate Scripts Error","description":"There was an error attempting to evaluate the external JavaScript files.\n\n Please check your network connection and try again later."}}},"inspire":{"title":"Inspire","menu":{"title":"Inspire"}},"magazine":{"title":"Magazine","menu":{"title":"Magazine"},"post":{"title":"Post"}},"search":{"title":"Find selected properties","menu":{"title":"Search"},"form":{"q":{"placeholder":"Search for ..."},"submit":{"label":"Search"}},"noresults":{"title":"No hits"},"results":{"title":"Matching properties"},"recommended_properties":{"title":"Recommended properties"}},"settings":{"title":"Personal settings","menu":{"title":"Settings"},"entries":{"login":"Login","autoplay":"Autoplay","help":"Help","imprint":"Privacy and terms","reload":"Restart"}},"start":{"title":"Overview","menu":{"title":"Start"},"tags":{"label":"Tags"}}}
+    }
+};

@@ -1,0 +1,25 @@
+{
+  "search": {
+    "title": "Ausgewählte Immobilien finden",
+    "menu": {
+      "title": "Suchen"
+    },
+    "form": {
+      "q": {
+        "placeholder": "Suchen nach ..."
+      },
+      "submit": {
+        "label": "Suchen"
+      }
+    },
+    "noresults": {
+      "title": "Keine Treffer"
+    },
+    "results": {
+      "title": "Gefundene Immobilien"
+    },
+    "recommended_properties": {
+      "title": "Empfohlene Immobilien"
+    }
+  }
+}

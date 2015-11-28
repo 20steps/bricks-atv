@@ -4,7 +4,7 @@
   "authors": [
     "Helmut Hoffer von Ankershoffen <hhva@20steps.de>"
   ],
-  "description": "Angular-inspired MVC Framework and skeleton for TVML/TVJS based Apple TV apps, optionally connecting to a Bricks Backend",
+  "description": "Framework and skeleton for MVC based Apple TV (TVML/TVJS) apps, optionally connecting to Bricks Backend\"",
   "main": "dist/bricks-atv.js",
   "moduleType": [
     "globals"
@@ -21,7 +21,6 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests",
-    "skeleton/"
+    "tests"
   ]
 }

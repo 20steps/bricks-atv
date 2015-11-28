@@ -1,0 +1,34 @@
+{
+  "name": "BricksATV",
+  "authors": [
+    "Helmut Hoffer von Ankershoffen <hhva@20steps.de>"
+  ],
+  "description": "Framework and skeleton for MVC based Apple TV (TVML/TVJS) apps, optionally connecting to Bricks Backend\"",
+  "main": "dist/bricks-atv.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Apple",
+    "TV",
+    "MVC"
+  ],
+  "license": "MIT",
+  "homepage": "http://20steps.de",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "63f082548c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "63f082548c726abec1e0b4033a1c28213a0a42ad"
+  },
+  "_source": "git://github.com/20steps/bricks-atv.git",
+  "_target": "*",
+  "_originalSource": "bricks-atv"
+}

@@ -1,0 +1,25 @@
+{
+  "search": {
+    "title": "Find selected properties",
+    "menu": {
+      "title": "Search"
+    },
+    "form": {
+      "q": {
+        "placeholder": "Search for ..."
+      },
+      "submit": {
+        "label": "Search"
+      }
+    },
+    "noresults": {
+      "title": "No hits"
+    },
+    "results": {
+      "title": "Matching properties"
+    },
+    "recommended_properties": {
+      "title": "Recommended properties"
+    }
+  }
+}

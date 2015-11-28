@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "title": "Persönliche Einstellungen",
+    "menu": {
+      "title": "Einstellungen"
+    },
+    "entries": {
+      "login": "Anmelden",
+      "autoplay": "Autoplay",
+      "help": "Hilfe",
+      "imprint": "Datenschutz und Nutzungsbedingungen",
+      "reload": "Neustarten"
+    }
+  }
+}
