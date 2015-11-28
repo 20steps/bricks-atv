@@ -61,6 +61,13 @@
             ReferencedContainer = "container:BricksTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "stage"
+            value = "dev"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

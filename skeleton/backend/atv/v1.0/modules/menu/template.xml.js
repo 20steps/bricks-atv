@@ -16,9 +16,6 @@ var Template = function(context, callback) {
                     <menuItem ui-sref='start({"id": "1234"})'>
                         <title><%= window.i18n.t('start.menu.title') %></title>
                     </menuItem>
-                    <menuItem ui-sref="inspire">
-                        <title><%= window.i18n.t('inspire.menu.title') %></title>
-                    </menuItem>
                     <menuItem ui-sref="search">
                         <title><%= window.i18n.t('search.menu.title') %></title>
                     </menuItem>

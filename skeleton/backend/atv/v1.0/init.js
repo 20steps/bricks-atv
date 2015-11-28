@@ -29,7 +29,7 @@ App.onLaunch = function(options) {
     var javascriptFiles = [
 
         // prepare environment for libs and bricks
-        `${options.BASEURL}/lib/bricks/infrastructure/core/environment.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/environment.js`,
 
         // underscore
         `${options.BASEURL}/lib/underscore/underscore-min.js`,
@@ -43,20 +43,20 @@ App.onLaunch = function(options) {
         `${options.BASEURL}/lib/moment/min/moment-with-locales.min.js`,
 
         // bricks contrib
-        `${options.BASEURL}/lib/bricks-atv/contrib/rsvp/rsvp.js`,
-        `${options.BASEURL}/lib/bricks-atv/contrib/route-recognizer/dist/route-recognizer.js`,
-        `${options.BASEURL}/lib/bricks-atv/contrib/router/router.js`,
-        `${options.BASEURL}/lib/bricks-atv/contrib/loglevel/dist/loglevel.js`,
-        `${options.BASEURL}/lib/bricks-atv/contrib/js-signals/dist/signals.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/contrib/rsvp/rsvp.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/contrib/route-recognizer/dist/route-recognizer.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/contrib/router/router.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/contrib/loglevel/dist/loglevel.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/contrib/js-signals/dist/signals.js`,
 
         // bricks framework for ATV
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/kernel.js`,
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/eventProvider.js`,
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/moduleProvider.js`,
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/stateProvider.js`,
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/resourceLoader.js`,
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/apiLoader.js`,
-        `${options.BASEURL}/lib/bricks-atv/infrastructure/core/run.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/kernel.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/eventProvider.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/moduleProvider.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/stateProvider.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/resourceLoader.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/apiLoader.js`,
+        `${options.BASEURL}/lib/bricks-atv/src/infrastructure/core/run.js`,
 
         // your app config and utils
         `${options.BASEURL}/modules/app/config/bricks.js`,

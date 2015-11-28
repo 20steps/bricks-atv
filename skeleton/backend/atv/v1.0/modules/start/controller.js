@@ -17,11 +17,7 @@ bricks.module('brickstv.start').controller('BricksTVStartController', {
     // - the return value of the function is the context for template invocation
     action: function(model) {
         log.info('BricksTVStartController.action',model);
-        var context = model.data;
-        context.start.tags = _.sortBy(context.start.tags,function(tag) {
-            return -tag.count;
-        });
-        return context;
+        return model.data;
     }
 
 });

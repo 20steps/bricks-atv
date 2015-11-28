@@ -52,13 +52,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TVApplicationControllerDe
             if let stage = environment["stage"] {
                 switch stage {
                 case "dev":
-                    return "http://ok.pages.20steps.localhost.com/bundles/brickscustomklambtoks/atv/v\(version)"
+                    return "http://ok.pages.20steps.localhost.com/bundles/brickscustomklambtok/atv/v\(version)"
                 default:
-                    return "http://ok.pages.20steps.de/bundles/brickscustomklambtoks/atv/v\(version)"
+                    return "http://ok.pages.20steps.de/bundles/brickscustomklambtok/atv/v\(version)"
                 }
                 
             } else {
-                return "http://ok.pages.20steps.de/bundles/brickscustomklambtoks/atv/v\(version)"
+                return "http://ok.pages.20steps.de/bundles/brickscustomklambtok/atv/v\(version)"
             }
             
         }
