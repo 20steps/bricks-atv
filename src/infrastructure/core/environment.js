@@ -1,5 +1,3 @@
-'use strict';
-
 // need to provide window some others for libraries
 var window =  this;
 var self = this;

@@ -94,6 +94,11 @@ App.onLaunch = function(options) {
         `${options.BASEURL}/modules/search/controller.js`
     ];
 
+    // uncomment the next three lines for production build
+    /*var javascriptFiles = [
+        `${options.BASEURL}/dist/js/app.min.js`,
+    ];*/
+
     console.log('will evaluate scripts',javascriptFiles);
 
     /**
