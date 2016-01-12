@@ -37,8 +37,6 @@ bricks.userService = {
 
     setUser: function(user) {
         log.debug('setting user',user);
-        bricks.userService.user = user;
-        Storage.setItem('user',)
     },
 
     getUser: function() {
@@ -70,7 +68,7 @@ bricks.userService = {
                 bricks.userService.setUser(response.data.user);
             },function(error) {
                 log.debug('error in loop',error);
-                userService.clear();
+                bricks.userService.clear();
             });
         },60);
     },
