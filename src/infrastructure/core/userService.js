@@ -90,7 +90,7 @@ bricks.userService = {
                     }, function (error) {
                         log.debug('going to', errorSref);
                         navigationDocument.popDocument();
-                        bricks.stateProvider.go(errorSref);
+                        bricks.stateProvider.go(errorSref,null,true);
                     });
                 } else if (response.data.status == 'WAITING_FOR_CONFIRMATION') {
                     log.debug('waiting for confirmation');
@@ -99,13 +99,13 @@ bricks.userService = {
                     clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     log.debug('going to', errorSref);
                     navigationDocument.popDocument();
-                    bricks.stateProvider.go(errorSref);
+                    bricks.stateProvider.go(errorSref,null,true);
                 } else {
                     log.debug('unknown state, canceling');
                     clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     log.debug('going to', errorSref);
                     navigationDocument.popDocument();
-                    bricks.stateProvider.go(errorSref);
+                    bricks.stateProvider.go(errorSref,null,true);
                 }
             }, function (error) {
                 log.debug('getting authentication token failed', error);
@@ -113,11 +113,12 @@ bricks.userService = {
         }, 1000);
     },
 
-    logout: function() {
+    logout: function(sref) {
+        sref = sref || 'start';
         log.debug('logging out');
         bricks.userService.stopLoop();
         bricks.userService.clear();
-        log.debug('end of logging out');
+        bricks.stateProvider.go(sref,null,true)
     },
 
     startLoop: function() {
