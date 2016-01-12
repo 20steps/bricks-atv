@@ -340,8 +340,8 @@ bricks.stateProvider = {
                     if (typeof controller.action !== 'undefined') {
                         log.debug('calling controller.action',model)
                         context = controller.action(model);
-                        context.bricks = bricks;
                     }
+                    context.bricks = bricks;
                     log.debug('templateContext',context);
                     var templatePath = bricks.stateProvider.findOneTemplateByController(controllerKey);
                     log.debug('templatePath',templatePath);
