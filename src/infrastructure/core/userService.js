@@ -25,9 +25,11 @@ bricks.userService = {
         return bricks.userService.token != null;
     },
 
+    setUser: function(user) {
+        bricks.userService.user = user;
+    }
     getUser: function() {
-        return null;
-        //return bricks.userService.user;
+        return bricks.userService.user;
     },
 
     clear: function(token) {
