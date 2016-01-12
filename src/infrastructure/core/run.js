@@ -37,16 +37,35 @@ bricks.run = function() {
         lng: bricks.config.language
     },function() {
         log.debug('Initialized i18next');
-        log.debug('Initializing menu template');
-        bricks.resourceLoader.load('/modules/menu/template.xml.js',
-            {},
-            function (resource) {
-                log.debug('Pushing menu template as initial document');
-                var doc = bricks.stateProvider.makeDocument(resource);
-                doc.addEventListener("select", bricks.stateProvider.handleEvent.bind(bricks.stateProvider));
-                navigationDocument.pushDocument(doc);
-            }
-        );
+        if (bricks.userService.hasToken()) {
+            log.debug('loading initial user info');
+            bricks.userService.info().then(function(response) {
+                log.debug('setting user info on start of loop');
+                bricks.userService.setUser(response.data.user);
+            }).finally(function() {
+                log.debug('Initializing menu template');
+                bricks.resourceLoader.load('/modules/menu/template.xml.js',
+                    {},
+                    function (resource) {
+                        log.debug('Pushing menu template as initial document');
+                        var doc = bricks.stateProvider.makeDocument(resource);
+                        doc.addEventListener("select", bricks.stateProvider.handleEvent.bind(bricks.stateProvider));
+                        navigationDocument.pushDocument(doc);
+                    }
+                );
+            });
+        } else {
+            log.debug('Initializing menu template');
+            bricks.resourceLoader.load('/modules/menu/template.xml.js',
+                {},
+                function (resource) {
+                    log.debug('Pushing menu template as initial document');
+                    var doc = bricks.stateProvider.makeDocument(resource);
+                    doc.addEventListener("select", bricks.stateProvider.handleEvent.bind(bricks.stateProvider));
+                    navigationDocument.pushDocument(doc);
+                }
+            );
+        }
     });
 
 }
