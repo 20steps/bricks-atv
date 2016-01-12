@@ -33,8 +33,10 @@ bricks.userService = {
             localStorage.setItem('token',token);
             bricks.userService.startLoop();
         } else {
+            log.debug('removing token');
             localStorage.removeItem('token');
         }
+        log.debug('end of set token');
     },
 
     hasToken: function() {
