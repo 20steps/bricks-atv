@@ -8,6 +8,10 @@ bricks.userService = {
 
     user: null,
 
+    init: function() {
+        log.debug('bricksUserService.init');
+    }
+
     getToken: function() {
         return bricks.userService.token;
     },
