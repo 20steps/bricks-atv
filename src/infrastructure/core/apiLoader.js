@@ -5,7 +5,7 @@ log.debug('loading bricks.infrastructure.core.moduleProvider');
 bricks.apiLoader = {
 	call: function(path) {
 		log.debug('bricks.apiLoader.call',path);
-		var url = bricks.config.options.BASEURL_API+path;
+		var url = bricks.config.options.BASEURL_API+'/'+path;
 		log.debug('url',url);
 		var promise = new global.RSVP.Promise(function(resolve,reject) {
 			var client = new XMLHttpRequest();
