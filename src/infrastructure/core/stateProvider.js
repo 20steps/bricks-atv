@@ -63,7 +63,8 @@ bricks.stateProvider = {
         }
     },
 
-    go: function(to,params) {
+    go: function(to,params,popDocument) {
+        popDocument = popDocument || false;
         log.debug('bricks.stateProvider.go',to,params);
         var url;
         if (params) {
@@ -74,6 +75,10 @@ bricks.stateProvider = {
             url = bricks.stateProvider.generateURL(to);
         }
         log.debug('generated url',url);
+        if (popDocument) {
+            log.debug('popping document');
+            navigationDocument.popDocument();
+        }
         bricks.stateProvider.handleURL(url);
     },
 

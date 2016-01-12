@@ -85,9 +85,11 @@ bricks.userService = {
                     bricks.userService.setToken(response.data.token);
                     bricks.userService.info().then(function (response) {
                         log.debug('going to', successSref);
+                        navigationDocument.popDocument();
                         bricks.stateProvider.go(successSref);
                     }, function (error) {
                         log.debug('going to', errorSref);
+                        navigationDocument.popDocument();
                         bricks.stateProvider.go(errorSref);
                     });
                 } else if (response.data.status == 'WAITING_FOR_CONFIRMATION') {
@@ -96,11 +98,13 @@ bricks.userService = {
                     log.debug('authentication key unknown, probably expired, going to start');
                     clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     log.debug('going to', errorSref);
+                    navigationDocument.popDocument();
                     bricks.stateProvider.go(errorSref);
                 } else {
                     log.debug('unknown state, canceling');
                     clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     log.debug('going to', errorSref);
+                    navigationDocument.popDocument();
                     bricks.stateProvider.go(errorSref);
                 }
             }, function (error) {
