@@ -9,7 +9,7 @@ bricks.userService = {
     user: null,
 
     init: function() {
-        log.debug('bricksUserService.init');
+        log.debug('bricks.userService.init');
 
         var token = Storage.getItem('token');
         if (token) {
@@ -25,10 +25,10 @@ bricks.userService = {
     },
 
     setToken: function(token) {
-        log.debug('bricks.userService.setToken',token)
+        log.debug('bricks.userService.setToken',token);
         bricks.userService.token = token;
         Storage.setItem('token',token);
-        bricksUserService.startLoop();
+        bricks.userService.startLoop();
     },
 
     hasToken: function() {
@@ -61,10 +61,10 @@ bricks.userService = {
 
     startLoop: function() {
         log.debug('starting loop');
-        if (bricksUserService.loop) {
-            bricksUserService.stopLoop();
+        if (bricks.userService.loop) {
+            bricks.userService.stopLoop();
         }
-        bricksUserService.loop = setInterval(function() {
+        bricks.userService.loop = setInterval(function() {
             bricks.userService.info().then(function(response) {
                 log.debug('setting user info in loop');
                 bricks.userService.setUser(response.data.user);
@@ -77,8 +77,8 @@ bricks.userService = {
 
     stopLoop: function() {
         log.debug('stopping loop');
-        if (bricksUserService.loop) {
-            clearInterval(bricksUserService.loop);
+        if (bricks.userService.loop) {
+            clearInterval(bricks.userService.loop);
         }
     },
 
