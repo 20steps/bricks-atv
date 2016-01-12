@@ -65,15 +65,22 @@ bricks.userService = {
         if (bricks.userService.loop) {
             bricks.userService.stopLoop();
         }
-        bricks.userService.loop = setInterval(function() {
-            bricks.userService.info().then(function(response) {
-                log.debug('setting user info in loop');
-                bricks.userService.setUser(response.data.user);
-            },function(error) {
-                log.debug('error in loop',error);
-                bricks.userService.clear();
-            });
-        },1000*60);
+        bricks.userService.info().then(function(response) {
+            log.debug('setting user info on start of loop');
+            bricks.userService.setUser(response.data.user);
+            bricks.userService.loop = setInterval(function() {
+                bricks.userService.info().then(function(response) {
+                    log.debug('setting user info in loop');
+                    bricks.userService.setUser(response.data.user);
+                },function(error) {
+                    log.debug('error in loop',error);
+                    bricks.userService.clear();
+                });
+            },1000*60);
+        },function(error) {
+            log.debug('error in start of loop',error);
+        });
+
     },
 
     stopLoop: function() {
