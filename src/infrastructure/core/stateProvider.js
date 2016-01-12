@@ -44,6 +44,7 @@ bricks.stateProvider = {
 
     handleURL: function(url) {
         log.debug("bricks.stateProvider.handleURL",url);
+        bricks.stateProvider.router.handleURL(url);
     },
 
     goSRefString: function(sref) {
