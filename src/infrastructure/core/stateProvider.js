@@ -342,9 +342,9 @@ bricks.stateProvider = {
                         context = controller.action(model);
                     }
                     context.bricks = bricks;
-                    log.debug('templateContextxx',context);
+                    log.debug('templateContext',context);
                     var templatePath = bricks.stateProvider.findOneTemplateByController(controllerKey);
-                    log.debug('templatePath',templatePath);
+                    log.debug('loading template from path',templatePath);
                     bricks.resourceLoader.load(templatePath, context,
                         function(resource) {
                             if (resource) {
