@@ -109,7 +109,8 @@ bricks.userService = {
         log.debug('logging out');
         bricks.userService.stopLoop();
         bricks.userService.clear();
-        bricks.user = null;
+        bricks.userService.user = null;
+        log.debug('end of logging out');
     },
 
     startLoop: function() {
