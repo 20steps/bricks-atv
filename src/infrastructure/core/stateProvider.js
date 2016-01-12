@@ -345,32 +345,35 @@ bricks.stateProvider = {
                     log.debug('templateContextxx',context);
                     var templatePath = bricks.stateProvider.findOneTemplateByController(controllerKey);
                     log.debug('templatePath',templatePath);
-                    bricks.resourceLoader.load(templatePath, context,
-                        function(resource) {
-                            if (resource) {
-                                /*
-                                 The XML template must be turned into a DOMDocument in order to be
-                                 presented to the user. See the implementation of makeDocument below.
-                                 */
-                                var doc = bricks.stateProvider.makeDocument(resource);
+                    if (templatePath) {
+                        bricks.resourceLoader.load(templatePath, context,
+                            function(resource) {
+                                if (resource) {
+                                    /*
+                                     The XML template must be turned into a DOMDocument in order to be
+                                     presented to the user. See the implementation of makeDocument below.
+                                     */
+                                    var doc = bricks.stateProvider.makeDocument(resource);
 
-                                /*
-                                 Event listeners are used to handle and process user actions or events. Listeners
-                                 can be added to the document or to each element. Events are bubbled up through the
-                                 DOM hierarchy and can be handled or cancelled at at any point.
+                                    /*
+                                     Event listeners are used to handle and process user actions or events. Listeners
+                                     can be added to the document or to each element. Events are bubbled up through the
+                                     DOM hierarchy and can be handled or cancelled at at any point.
 
-                                 Listeners can be added before or after the document has been presented.
+                                     Listeners can be added before or after the document has been presented.
 
-                                 For a complete list of available events, see the TVMLKit DOM Documentation.
-                                 */
-                                doc.addEventListener("select", bricks.stateProvider.handleEvent.bind(bricks.stateProvider));
+                                     For a complete list of available events, see the TVMLKit DOM Documentation.
+                                     */
+                                    doc.addEventListener("select", bricks.stateProvider.handleEvent.bind(bricks.stateProvider));
 
-                                bricks.stateProvider.defaultPresenter(doc);
-                                bricks.stateProvider.hideLoadingIndicator();
+                                    bricks.stateProvider.defaultPresenter(doc);
+                                    bricks.stateProvider.hideLoadingIndicator();
 
+                                }
                             }
-                        }
-                    );
+                        );
+                    }
+
                 },
                 exit: function(context) {
                     log.debug('exit',context);
