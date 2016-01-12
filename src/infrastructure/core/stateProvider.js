@@ -43,7 +43,7 @@ bricks.stateProvider = {
     },
 
     handleURL: function(url) {
-        log.debug("bricks.stateProvider.handleURL",url,replaceDocument);
+        log.debug("bricks.stateProvider.handleURL",url);
     },
 
     goSRefString: function(sref) {
