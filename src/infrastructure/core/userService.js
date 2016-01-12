@@ -27,7 +27,8 @@ bricks.userService = {
 
     setUser: function(user) {
         bricks.userService.user = user;
-    }
+    },
+    
     getUser: function() {
         return bricks.userService.user;
     },
