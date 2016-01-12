@@ -5,6 +5,7 @@ log.debug('loading bricks.infrastructure.core.stateProvider');
 bricks.stateProvider = {
     router: new Router.Router(),
     replaceDocument: false,
+    topmostDocument: null, // excluding the loading indicator
 
     controllers: {},
     controller: function(key,callback) {
@@ -117,17 +118,25 @@ bricks.stateProvider = {
         if(this.loadingIndicatorVisible) {
             if (bricks.stateProvider.replaceDocument) {
                 navigationDocument.popDocument();
-                navigationDocument.popDocument();
-                navigationDocument.pushDocument(xml);
+                if (bricks.stateProvider.topmostDocument) {
+                    navigationDocument.replaceDocument(xml,bricks.stateProvider.topmostDocument);
+                } else {
+                    navigationDocument.popDocument();
+                    navigationDocument.pushDocument(xml);
+                }
+                bricks.stateProvider.topmostDocument = xml;
             } else {
+                bricks.stateProvider.topmostDocument = xml;
                 navigationDocument.replaceDocument(xml, this.loadingIndicator);
             }
             this.loadingIndicatorVisible = false;
         } else {
             if (bricks.stateProvider.replaceDocument) {
-                navigationDocument.popDocument();
+                navigationDocument.replaceDocument(xml,bricks.stateProvider.topmostDocument);
+            } else {
+                navigationDocument.pushDocument(xml);
             }
-            navigationDocument.pushDocument(xml);
+            bricks.stateProvider.topmostDocument = xml;
         }
 
         // FIXME: separate away
