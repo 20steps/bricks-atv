@@ -59,7 +59,7 @@ bricks.userService = {
 
     clear: function(token) {
         bricks.userService.setToken(null);
-        Storage.removeItem('token');
+        bricks.userService.user=null;
     },
 
     getAuthenticationKey: function() {
@@ -113,7 +113,6 @@ bricks.userService = {
         log.debug('logging out');
         bricks.userService.stopLoop();
         bricks.userService.clear();
-        bricks.userService.user = null;
         log.debug('end of logging out');
     },
 
