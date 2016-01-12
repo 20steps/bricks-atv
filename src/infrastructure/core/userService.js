@@ -72,13 +72,14 @@ bricks.userService = {
     pollAuthenticationToken: function(successSref,errorSref,pollInterval) {
         successSref = successSref || 'start';
         errorSref = errorSref || 'start';
-        pollInterval = pollInterval | 1000;
-        bricksUserService.pollAuthenticationToken = setInterval(function () {
+        pollInterval = pollInterval || 1000;
+        log.debug('bricks.userSerrvice.pollAuthenticationToken',successSref,errorSref,pollInterval);
+        bricks.userService.pollAuthenticationTokenInterval = setInterval(function () {
             bricks.userService.getAuthenticationToken(model.data.key).then(function (response) {
                 log.debug('got authentication response', response);
                 if (response.data.status == 'CONFIRMED') {
                     log.debug('authentication key was confirmed, setting token');
-                    clearInterval(bricksUserService.pollAuthenticationToken);
+                    clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     bricks.userService.setToken(response.data.token);
                     bricks.userService.info().then(function (response) {
                         log.debug('going to', successSref);
@@ -91,12 +92,12 @@ bricks.userService = {
                     log.debug('waiting for confirmation');
                 } else if (response.data.status == 'UNKNOWN_KEY') {
                     log.debug('authentication key unknown, probably expired, going to start');
-                    clearInterval(bricksUserService.pollAuthenticationToken);
+                    clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     log.debug('going to', errorSref);
                     bricks.stateProvider.go(errorSref, {});
                 } else {
                     log.debug('unknown state, canceling');
-                    clearInterval(bricksUserService.pollAuthenticationToken);
+                    clearInterval(bricks.userService.pollAuthenticationTokenInterval);
                     log.debug('going to', errorSref);
                     bricks.stateProvider.go(errorSref, {});
                 }
