@@ -71,7 +71,7 @@ bricks.userService = {
                 log.debug('error in loop',error);
                 bricks.userService.clear();
             });
-        },60);
+        },1000*60);
     },
 
     stopLoop: function() {
