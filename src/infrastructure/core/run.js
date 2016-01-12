@@ -29,6 +29,7 @@ bricks.run = function() {
     moment.locale(bricks.config.language);
 
     log.debug('Initializing i18next');
+    window.i18n = window.i18next;
     window.i18next.init({
         useCookie: false,
         useLocalStorage: false,
