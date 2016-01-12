@@ -12,11 +12,12 @@ bricks.userService = {
         log.debug('bricks.userService.init');
 
         var token = localStorage.getItem('token');
-        var token=null;
         if (token) {
             log.debug('Got token on init',token);
             bricks.userService.token = token;
             bricks.userService.startLoop();
+        } else {
+            log.debug('No token found in local storage');
         }
 
     },
