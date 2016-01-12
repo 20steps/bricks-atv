@@ -17,6 +17,7 @@ bricks.userService = {
     },
 
     setToken: function(token) {
+        log.debug('bricks.userService.setToken',token)
         bricks.userService.token = token;
     },
 
