@@ -38,7 +38,9 @@ bricks.userService = {
     },
 
     isLoggedIn: function() {
-        return bricks.user!=null;
+        var loggedIn=bricks.user!=null;
+        log.debug('loggedIn',loggedIn);
+        return loggedIn;
     },
 
     setUser: function(user) {
@@ -103,6 +105,7 @@ bricks.userService = {
     },
 
     logout: function() {
+        log.debug('logging out');
         bricks.userService.stopLoop();
         bricks.userService.clear();
         bricks.user = null;
