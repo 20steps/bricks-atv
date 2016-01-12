@@ -38,6 +38,7 @@ bricks.userService = {
 
     setUser: function(user) {
         log.debug('setting user',user);
+        bricks.userService.user = user;
     },
 
     getUser: function() {
