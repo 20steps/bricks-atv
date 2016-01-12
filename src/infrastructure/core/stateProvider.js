@@ -4,6 +4,7 @@ log.debug('loading bricks.infrastructure.core.stateProvider');
 
 bricks.stateProvider = {
     router: new Router.Router(),
+    replaceDocument: false,
 
     controllers: {},
     controller: function(key,callback) {
@@ -42,8 +43,7 @@ bricks.stateProvider = {
     },
 
     handleURL: function(url) {
-        log.debug("bricks.stateProvider.handleURL",url);
-        bricks.stateProvider.router.handleURL(url);
+        log.debug("bricks.stateProvider.handleURL",url,replaceDocument);
     },
 
     goSRefString: function(sref) {
@@ -63,8 +63,11 @@ bricks.stateProvider = {
         }
     },
 
-    go: function(to,params,popDocument) {
-        popDocument = popDocument || false;
+    go: function(to,params,replaceDocument) {
+        bricks.stateProvider.replaceDocument = replaceDocument || false;
+        if (replaceDocument) {
+            log.debug('replacing document');
+        }
         log.debug('bricks.stateProvider.go',to,params);
         var url;
         if (params) {
@@ -75,10 +78,6 @@ bricks.stateProvider = {
             url = bricks.stateProvider.generateURL(to);
         }
         log.debug('generated url',url);
-        if (popDocument) {
-            log.debug('popping document');
-            navigationDocument.popDocument();
-        }
         bricks.stateProvider.handleURL(url);
     },
 
@@ -115,9 +114,18 @@ bricks.stateProvider = {
         log.debug("defaultPresenter",xml);
 
         if(this.loadingIndicatorVisible) {
-            navigationDocument.replaceDocument(xml, this.loadingIndicator);
+            if (bricks.stateProvider.replaceDocument) {
+                navigationDocument.popDocument();
+                navigationDocument.popDocument();
+                navigationDocument.pushDocument(xml);
+            } else {
+                navigationDocument.replaceDocument(xml, this.loadingIndicator);
+            }
             this.loadingIndicatorVisible = false;
         } else {
+            if (bricks.stateProvider.replaceDocument) {
+                navigationDocument.popDocument();
+            }
             navigationDocument.pushDocument(xml);
         }
 
