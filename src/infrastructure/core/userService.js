@@ -37,6 +37,10 @@ bricks.userService = {
         return bricks.userService.token != null;
     },
 
+    isLoggedIn: function() {
+        return bricks.user!=null;
+    },
+
     setUser: function(user) {
         log.debug('setting user',user);
         bricks.userService.user = user;
