@@ -13,6 +13,7 @@ bricks.userService = {
 
         var token = Storage.getItem('token');
         if (token) {
+            log.debug('Got token on init',token);
             bricks.userService.token = token;
             bricks.userService.startLoop();
         }
@@ -27,7 +28,7 @@ bricks.userService = {
         log.debug('bricks.userService.setToken',token)
         bricks.userService.token = token;
         Storage.setItem('token',token);
-        bricksUserService.startLoop;
+        bricksUserService.startLoop();
     },
 
     hasToken: function() {
@@ -72,18 +73,18 @@ bricks.userService = {
                 userService.clear();
             });
         },60);
-    }
+    },
 
     stopLoop: function() {
         log.debug('stopping loop');
         if (bricksUserService.loop) {
             clearInterval(bricksUserService.loop);
         }
-    }
+    },
+
     info: function() {
       return bricks.authenticatedApiLoader.call('users/self/info.json');
     }
-
 
 };
 
