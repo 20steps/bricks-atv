@@ -26,10 +26,12 @@ bricks.userService = {
     },
 
     setUser: function(user) {
+        log.debug('setting user',user);
         bricks.userService.user = user;
     },
-    
+
     getUser: function() {
+        log.debug('getting user',bricks.userService.user);
         return bricks.userService.user;
     },
 
