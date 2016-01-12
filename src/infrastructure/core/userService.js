@@ -33,7 +33,7 @@ bricks.userService = {
     },
 
     getAuthenticationKey: function() {
-        return bricks.apiLoader.call('authentication/key.json');
+        return bricks.apiLoader.call('authentication/key.json?uuid=123');
     },
 
     pollAuthenticationToken: function(key) {
