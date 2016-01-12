@@ -20,7 +20,7 @@ bricks.userService = {
         bricks.userService.token = token;
     },
 
-    hasToken: function(token) {
+    hasToken: function() {
         return bricks.userService.token != null;
     },
 
