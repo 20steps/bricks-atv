@@ -23,7 +23,7 @@ bricks.authenticatedApiLoader = {
 					if (this.status == 200) {
 						var json = JSON.parse(this.responseText)
 						// inject user info
-						if (typeof response.data !== 'undefined') {
+						if (typeof json.data !== 'undefined') {
 							json.data.user = bricks.userService.getUser();
 						}
 						log.debug('apiAuthenticatedLoader resolving',json);
