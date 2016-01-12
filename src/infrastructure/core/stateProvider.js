@@ -345,7 +345,7 @@ bricks.stateProvider = {
                     log.debug('templateContextxx',context);
                     var templatePath = bricks.stateProvider.findOneTemplateByController(controllerKey);
                     log.debug('templatePath',templatePath);
-                    if (templatePath) {
+                    if (templatePath && templatePath!='none') {
                         bricks.resourceLoader.load(templatePath, context,
                             function(resource) {
                                 if (resource) {
