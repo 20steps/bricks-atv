@@ -40,9 +40,7 @@ bricks.userService = {
     },
 
     isLoggedIn: function() {
-        var loggedIn=bricks.user!=null;
-        log.debug('loggedIn',loggedIn);
-        return loggedIn;
+        return bricks.userService.user!=null;
     },
 
     setUser: function(user) {
