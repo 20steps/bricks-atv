@@ -34,7 +34,8 @@ bricks.run = function() {
         useCookie: false,
         useLocalStorage: false,
         resStore: bricks.config.i18nResources,
-        lng: bricks.config.language
+        lng: bricks.config.language,
+        useDataAttrOptions: true
     },function() {
         log.debug('Initialized i18next');
         if (bricks.userService.hasToken()) {
