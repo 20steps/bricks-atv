@@ -19,7 +19,11 @@ bricks.apiLoader = {
 			function handler() {
 				if (this.readyState == 4) {
 					if (this.status == 200) {
-						var json = JSON.parse(this.responseText)
+						var json = JSON.parse(this.responseText);
+						// inject user info
+						if (typeof user.data !== 'undefined') {
+							json.data.user = bricks.userService.getUser();
+						}
 						log.debug('apiLoader.call resolving',json);
 						resolve(json);
 					} else {

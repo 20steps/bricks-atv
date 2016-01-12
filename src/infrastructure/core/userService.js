@@ -26,7 +26,8 @@ bricks.userService = {
     },
 
     getUser: function() {
-        return bricks.userService.user;
+        return null;
+        //return bricks.userService.user;
     },
 
     clear: function(token) {
