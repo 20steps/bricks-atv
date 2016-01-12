@@ -2,9 +2,9 @@
 
 log.debug('loading bricks.infrastructure.core.moduleProvider');
 
-bricks.apiLoader = {
+bricks.authenticatedApiLoader = {
 	call: function(path) {
-		log.debug('bricks.apiLoader.call',path);
+		log.debug('bricks.authenticatedApiLoader.call',path);
 		var url = bricks.config.options.BASEURL_API+'/authenticated/'+path;
 		log.debug('url',url);
 		var promise = new global.RSVP.Promise(function(resolve,reject) {
