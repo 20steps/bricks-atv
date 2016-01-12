@@ -11,7 +11,7 @@ bricks.userService = {
     init: function() {
         log.debug('bricks.userService.init');
 
-        var token = Storage.getItem('token');
+        var token = localStorage.getItem('token');
         var token=null;
         if (token) {
             log.debug('Got token on init',token);
@@ -28,7 +28,7 @@ bricks.userService = {
     setToken: function(token) {
         log.debug('bricks.userService.setToken',token);
         bricks.userService.token = token;
-        //Storage.setItem('token',token);
+        localStorage.setItem('token',token);
         bricks.userService.startLoop();
     },
 
