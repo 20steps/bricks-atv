@@ -9,7 +9,7 @@ bricks.authenticatedApiLoader = {
 		log.debug('url',url);
 		var promise = new global.RSVP.Promise(function(resolve,reject) {
 			var client = new XMLHttpRequest();
-			log.debug('callig url',url);
+			log.debug('callig authenticated url',url);
 			client.open("GET", url);
 			client.onreadystatechange = handler;
 			client.responseType = "json";
@@ -25,7 +25,7 @@ bricks.authenticatedApiLoader = {
 						log.debug('apiAuthenticatedLoader resolving',json);
 						resolve(json);
 					} else {
-						log.debug('apiAuthenticatedLoader rejecting');
+						log.debug('apiAuthenticatedLoader rejecting',this.status);
 						reject(this);
 					}
 				}
