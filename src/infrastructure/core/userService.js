@@ -76,6 +76,9 @@ bricks.userService = {
         errorSref = errorSref || 'start';
         pollInterval = pollInterval || 1000;
         log.debug('bricks.userSerrvice.pollAuthenticationToken',successSref,errorSref,pollInterval);
+        if (bricks.userService.pollAuthenticationTokenInterval) {
+            clearInterval(bricks.userService.pollAuthenticationTokenInterval);
+        }
         bricks.userService.pollAuthenticationTokenInterval = setInterval(function () {
             bricks.userService.getAuthenticationToken(key).then(function (response) {
                 log.debug('got authentication response', response);
