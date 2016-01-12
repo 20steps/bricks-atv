@@ -22,10 +22,10 @@ bricks.apiLoader = {
 				if (this.readyState == 4) {
 					if (this.status == 200) {
 						var json = JSON.parse(this.responseText)
-						log.debug('json',json);
+						log.debug('apiAuthenticatedLoader resolving',json);
 						resolve(json);
 					} else {
-						log.debug('rejecting')
+						log.debug('apiAuthenticatedLoader rejecting');
 						reject(this);
 					}
 				}
