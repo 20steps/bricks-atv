@@ -37,11 +37,7 @@ bricks.userService = {
     },
 
     pollAuthenticationToken: function(key) {
-        bricks.apiLoader.call('authentication/token.json?key='+encodeURIComponent(key)).then(function(response) {
-            log.debug('pollAuthenticationToken suceeded',response);
-        },function() {
-            log.debug('pollAuthenticationToken failed');
-        });
+        return bricks.apiLoader.call('authentication/token.json?key='+encodeURIComponent(key));
     },
 
     info: function() {
