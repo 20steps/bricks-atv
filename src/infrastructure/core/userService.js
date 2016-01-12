@@ -41,7 +41,7 @@ bricks.userService = {
     },
 
     info: function() {
-      return bricks.authenticatedApiLoader.call('user/info.json');
+      return bricks.authenticatedApiLoader.call('users/self/info.json');
     }
 
 
