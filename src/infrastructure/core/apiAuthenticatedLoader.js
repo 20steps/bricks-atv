@@ -14,7 +14,7 @@ bricks.authenticatedApiLoader = {
 			client.onreadystatechange = handler;
 			client.responseType = "json";
 			client.setRequestHeader("Accept", "application/json");
-			client.setRequestHeader("Authentication", "Bearer "+bricks.userService.getToken());
+			client.setRequestHeader("Authorization", "Bearer "+bricks.userService.getToken());
 			log.debug('Authentication header set to ',"Bearer "+bricks.userService.getToken());
 			client.send();
 
