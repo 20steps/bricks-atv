@@ -117,12 +117,11 @@ bricks.stateProvider = {
 
         if(this.loadingIndicatorVisible) {
             if (bricks.stateProvider.replaceDocument) {
-                navigationDocument.popDocument();
                 if (bricks.stateProvider.topmostDocument) {
                     navigationDocument.replaceDocument(xml,bricks.stateProvider.topmostDocument);
-                } else {
                     navigationDocument.popDocument();
-                    navigationDocument.pushDocument(xml);
+                } else {
+                    navigationDocument.replaceDocument(xml, this.loadingIndicator);
                 }
                 bricks.stateProvider.topmostDocument = xml;
             } else {
