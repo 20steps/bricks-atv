@@ -21,7 +21,7 @@ bricks.apiLoader = {
 					if (this.status == 200) {
 						var json = JSON.parse(this.responseText);
 						// inject user info
-						if (typeof user.data !== 'undefined') {
+						if (typeof response.data !== 'undefined') {
 							json.data.user = bricks.userService.getUser();
 						}
 						log.debug('apiLoader.call resolving',json);
