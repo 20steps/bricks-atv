@@ -56,9 +56,48 @@ bricks.userService = {
         return bricks.apiLoader.call('authentication/key.json?uuid=123');
     },
 
-    pollAuthenticationToken: function(key) {
+    getAuthenticationToken: function(key) {
         return bricks.apiLoader.call('authentication/token.json?key='+encodeURIComponent(key));
     },
+
+
+    pollAuthenticationToken: function(successSref,errorSref,pollInterval) {
+        successSref = successSref || 'start';
+        errorSref = errorSref || 'start';
+        pollInterval = pollInterval | 1000;
+        bricksUserService.pollAuthenticationToken = setInterval(function() {
+            bricks.userService.getAuthenticationToken(model.data.key).then(function(response) {
+                log.debug('got authentication response',response);
+                if (response.data.status=='CONFIRMED') {
+                    log.debug('authentication key was confirmed, setting token');
+                    clearInterval(bricksUserService.pollAuthenticationToken);
+                    bricks.userService.setToken(response.data.token);
+                    bricks.userService.info().then(function(response) {
+                        log.debug('going to',successSref);
+                        bricks.stateProvider.go(successSref,{});
+                    },function(error) {
+                        log.debug('going to',errorSref);
+                        bricks.stateProvider.go(errorSref,{});
+                    });
+                } else if (response.data.status=='WAITING_FOR_CONFIRMATION') {
+                    log.debug('waiting for confirmation');
+                } else if (response.data.status=='UNKNOWN_KEY') {
+                    log.debug('authentication key unknown, probably expired, going to start');
+                    clearInterval(bricksUserService.pollAuthenticationToken);
+                    log.debug('going to',errorSref);
+                    bricks.stateProvider.go(errorSref,{});
+                } else {
+                    log.debug('unknown state, canceling');
+                    clearInterval(bricksUserService.pollAuthenticationToken);
+                    log.debug('going to',errorSref);
+                    bricks.stateProvider.go(errorSref,{});
+                }
+            },function(error) {
+                log.debug('getting authentication token failed',error);
+            });
+        },1000);
+    }
+
 
     startLoop: function() {
         log.debug('starting loop');
