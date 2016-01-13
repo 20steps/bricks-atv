@@ -263,7 +263,20 @@ bricks.stateProvider = {
          Check if the selected element has a 'template' attribute. If it does then we begin
          the process to present the template to the user.
          */
-        if (sref) {
+        if(sref && sref == 'play-video') {
+            log.debug('play-video found',sref);
+            var file = ele.getAttribute("file");
+            console.log('embedUrl',file);
+            var videoUrl = getVideoUrl(file);
+            console.log('videoUrl',videoUrl);
+            var player = new Player();
+            var playlist = new Playlist();
+            var mediaItem = new MediaItem("video", videoUrl);
+            player.playlist = playlist;
+            player.playlist.push(mediaItem);
+            player.present();
+            player.play();
+        } else if (sref) {
             log.debug('sref found',sref);
             bricks.stateProvider.goSRefString(sref);
         } else {
