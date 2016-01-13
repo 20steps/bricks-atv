@@ -278,8 +278,8 @@ bricks.stateProvider = {
             player.play();
         } else if(sref && sref == 'play-audio') {
             log.debug('play-audio found',sref);
-            var file = ele.getAttribute("file");
-            console.log('audioUrl',file);
+            var audioUrl = ele.getAttribute("file");
+            console.log('audioUrl',audioUrl);
             var player = new Player();
             var playlist = new Playlist();
             var mediaItem = new MediaItem("audio", audioUrl);
