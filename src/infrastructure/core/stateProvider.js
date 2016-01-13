@@ -264,14 +264,25 @@ bricks.stateProvider = {
          the process to present the template to the user.
          */
         if(sref && sref == 'play-video') {
-            log.debug('play-video found',sref);
+            log.debug('play-video found', sref);
             var file = ele.getAttribute("file");
-            console.log('embedUrl',file);
+            console.log('embedUrl', file);
             var videoUrl = getVideoUrl(file);
-            console.log('videoUrl',videoUrl);
+            console.log('videoUrl', videoUrl);
             var player = new Player();
             var playlist = new Playlist();
             var mediaItem = new MediaItem("video", videoUrl);
+            player.playlist = playlist;
+            player.playlist.push(mediaItem);
+            player.present();
+            player.play();
+        } else if(sref && sref == 'play-audio') {
+            log.debug('play-audio found',sref);
+            var file = ele.getAttribute("file");
+            console.log('audioUrl',file);
+            var player = new Player();
+            var playlist = new Playlist();
+            var mediaItem = new MediaItem("audio", audioUrl);
             player.playlist = playlist;
             player.playlist.push(mediaItem);
             player.present();
